@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapCut Viral Templates - Trendy & Trending Links</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Dynamic Live Themes */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #8b5cf6;
+            --primary-hover: #7c3aed;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Preset Themes */
+        [data-theme="emerald"] {
+            --bg-color: #064e3b;
+            --card-bg: rgba(6, 78, 59, 0.6);
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --text: #ecfdf5;
+            --text-muted: #a7f3d0;
+            --border: rgba(255, 255, 255, 0.15);
+            --shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.4);
+        }
+
+        [data-theme="cyberpunk"] {
+            --bg-color: #180828;
+            --card-bg: rgba(45, 10, 60, 0.6);
+            --primary: #f43f5e;
+            --primary-hover: #e11d48;
+            --text: #fff1f2;
+            --text-muted: #fca5a5;
+            --border: rgba(244, 63, 94, 0.2);
+            --shadow: 0 10px 30px -10px rgba(244, 63, 94, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        /* Navbar Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .theme-selector {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .theme-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #fff;
+            transition: transform 0.2s;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .t-purple { background: #8b5cf6; }
+        .t-emerald { background: #10b981; }
+        .t-cyber { background: #f43f5e; }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Search & Filter Controls */
+        .controls {
+            max-width: 1100px;
+            margin: 0 auto 2rem;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* Grid Section */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .template-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card-img {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .template-card:hover .card-img img {
+            transform: scale(1.08);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .use-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .use-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            header { padding: 1rem 5%; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-bolt"></i>
+            <span>CapCut Viral Hub</span>
+        </div>
+        <div class="theme-selector">
+            <span style="font-size: 0.8rem; color: var(--text-muted); margin-right: 5px;">Themes:</span>
+            <div class="theme-btn t-purple" onclick="setTheme('default')" title="Purple Theme"></div>
+            <div class="theme-btn t-emerald" onclick="setTheme('emerald')" title="Emerald Theme"></div>
+            <div class="theme-btn t-cyber" onclick="setTheme('cyberpunk')" title="Cyberpunk Theme"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Trending <span>CapCut Templates</span> 2026</h1>
+        <p>Aapke favorite viral CapCut templates ek hi jagah par. Directly use karein aur apni videos viral karein!</p>
+    </section>
+
+    <!-- Search & Filter Controls -->
+    <div class="controls">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="filterTemplates()" placeholder="Search template by name or style...">
+        </div>
+
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">All</button>
+            <button class="tab-btn" onclick="filterCategory('3d', this)">3D / Particles</button>
+            <button class="tab-btn" onclick="filterCategory('velocity', this)">Velocity Slow-Mo</button>
+            <button class="tab-btn" onclick="filterCategory('anime', this)">AI & Anime</button>
+            <button class="tab-btn" onclick="filterCategory('beat', this)">Beat Sync</button>
+        </div>
+    </div>
+
+    <!-- Template Cards Grid -->
+    <main class="grid-container" id="templateGrid">
+
+        <!-- Template Item 1 -->
+        <div class="template-card" data-category="velocity" data-title="velocity slow-mo smoothness">
+            <div class="card-img">
+                <span class="badge">Trending</span>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Velocity Template">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h3 class="card-title">Velocity Smooth Slow-Mo</h3>
+                    <div class="card-stats">
+                        <span><i class="fa-solid fa-play"></i> 1.2M Uses</span>
+                        <span><i class="fa-solid fa-heart"></i> 450K</span>
+                    </div>
+                </div>
+                <!-- Yahan apna CapCut Template Link add karein -->
+                <a href="https://www.capcut.com/" target="_blank" class="use-btn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Use Template in CapCut
+                </a>
+            </div>
+        </div>
+
+        <!-- Template Item 2 -->
+        <div class="template-card" data-category="3d" data-title="3d particle glow effect">
+            <div class="card-img">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=600&q=80" alt="3D Particle Template">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h3 class="card-title">3D Cyber Particle Zoom</h3>
+                    <div class="card-stats">
+                        <span><i class="fa-solid fa-play"></i> 890K Uses</span>
+                        <span><i class="fa-solid fa-heart"></i> 320K</span>
+                    </div>
+                </div>
+                <!-- Yahan apna CapCut Template Link add karein -->
+                <a href="https://www.capcut.com/" target="_blank" class="use-btn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Use Template in CapCut
+                </a>
+            </div>
+        </div>
+
+        <!-- Template Item 3 -->
+        <div class="template-card" data-category="anime" data-title="ai manga avatar transition">
+            <div class="card-img">
+                <span class="badge">Viral</span>
+                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80" alt="AI Anime Template">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h3 class="card-title">AI Manga & Photo Shift</h3>
+                    <div class="card-stats">
+                        <span><i class="fa-solid fa-play"></i> 2.5M Uses</span>
+                        <span><i class="fa-solid fa-heart"></i> 980K</span>
+                    </div>
+                </div>
+                <!-- Yahan apna CapCut Template Link add karein -->
+                <a href="https://www.capcut.com/" target="_blank" class="use-btn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Use Template in CapCut
+                </a>
+            </div>
+        </div>
+
+        <!-- Template Item 4 -->
+        <div class="template-card" data-category="beat" data-title="fast beat sync shake">
+            <div class="card-img">
+                <span class="badge">Hot</span>
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Beat Sync Template">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h3 class="card-title">Bass Boost Shake & Flash</h3>
+                    <div class="card-stats">
+                        <span><i class="fa-solid fa-play"></i> 640K Uses</span>
+                        <span><i class="fa-solid fa-heart"></i> 210K</span>
+                    </div>
+                </div>
+                <!-- Yahan apna CapCut Template Link add karein -->
+                <a href="https://www.capcut.com/" target="_blank" class="use-btn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Use Template in CapCut
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CapCut Viral Hub. Built for Video Creators & Editors.</p>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // 1. Live Theme Switcher Logic
+        function setTheme(themeName) {
+            if (themeName === 'default') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', themeName);
+            }
+        }
+
+        // 2. Search Filter Logic
+        function filterTemplates() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('template-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // 3. Category Filter Logic
+        function filterCategory(category, btnElement) {
+            let cards = document.getElementsByClassName('template-card');
+            let tabs = document.getElementsByClassName('tab-btn');
+
+            // Active Tab UI update
+            for (let tab of tabs) {
+                tab.classList.remove('active');
+            }
+            btnElement.classList.add('active');
+
+            // Card Filter logic
+            for (let i = 0; i < cards.length; i++) {
+                let itemCategory = cards[i].getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
